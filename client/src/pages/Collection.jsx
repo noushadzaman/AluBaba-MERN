@@ -38,7 +38,6 @@ const Collection = () => {
         if (category.length > 0) {
             productsCopy = productsCopy.filter(item => category.includes(item.category));
         }
-        console.log(productsCopy);
         if (subCategory.length > 0) {
             productsCopy = productsCopy.filter(item => subCategory.includes(item.subCategory));
 
