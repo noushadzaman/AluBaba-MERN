@@ -60,13 +60,20 @@ const PlaceOrder = () => {
                     else {
                         toast.error(response.error.message);
                     }
-                }
                     break;
+                }
 
                 case "stripe": {
-
-                }
+                    const responseStripe = await axios.post(backendUrl + '/api/order/stripe', orderData, { headers: { token } })
+                    if (responseStripe.data.success) {
+                        const { session_url } = responseStripe.data;
+                        window.location.replace(session_url)
+                    }
+                    else {
+                        toast.error(responseStripe.error.message);
+                    }
                     break;
+                }
 
                 case "razorpay":
 
@@ -183,12 +190,6 @@ const PlaceOrder = () => {
                             className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer">
                             <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
                             <img className="h-5 mx-4 " src={assets.stripe_logo} alt="" />
-                        </div>
-                        <div
-                            onClick={() => setMethod('razorpay')}
-                            className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer">
-                            <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'razorpay' ? 'bg-green-400' : ''}`}></p>
-                            <img className="h-5 mx-4" src={assets.razorpay_logo} alt="" />
                         </div>
                         <div
                             onClick={() => setMethod('cod')}
