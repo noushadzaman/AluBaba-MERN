@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { assets } from "../assets/assets"
 import axios from "axios"
-import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
@@ -32,7 +31,7 @@ const Add = ({ token }) => {
                 formData.append(`image${idx + 1}`, img);
             })
 
-            const response = await axios.post(backendUrl + '/api/product/add', formData, { headers: { token } });
+            const response = await axios.post(import.meta.env.VITE_BACKEND_URL  + '/api/product/add', formData, { headers: { token } });
             if (response.data.success) {
                 toast.success(response.data.message)
                 setImages([]);

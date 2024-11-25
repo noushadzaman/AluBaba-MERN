@@ -16,7 +16,15 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://future-fits-client.vercel.app",
+      "https://future-fits-admin.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 // api endpoints
 app.use("/api/user", userRouter);

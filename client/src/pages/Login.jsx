@@ -6,7 +6,7 @@ const SIGNUP = 'Sign up';
 const LOGIN = 'Login';
 
 const Login = () => {
-    const { token, setToken, navigate, backendUrl } = useContext(ShopContext)
+    const { token, setToken, navigate } = useContext(ShopContext)
     const [currentState, setCurrentState] = useState(LOGIN);
 
     const [name, setName] = useState('');
@@ -18,7 +18,7 @@ const Login = () => {
         try {
             if (currentState === SIGNUP) {
                 const response = await axios.post(
-                    backendUrl + '/api/user/register', { name, email, password }
+                    import.meta.env.VITE_BACKEND_URL  + '/api/user/register', { name, email, password }
                 );
                 if (response.data.success) {
                     setToken(response.data.token)
@@ -29,7 +29,7 @@ const Login = () => {
             }
             else {
                 const response = await axios.post(
-                    backendUrl + '/api/user/login', { email, password }
+                    import.meta.env.VITE_BACKEND_URL  + '/api/user/login', { email, password }
                 );
                 if (response.data.success) {
                     setToken(response.data.token)

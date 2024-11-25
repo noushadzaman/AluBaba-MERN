@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from 'react';
-// import { products } from '../assets/frontend_assets/assets';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -9,9 +8,9 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
     const currency = '$';
     const delivery_fee = 10;
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
+    const [initialLoading, setInitialLoading] = useState(true);
     const [cartItems, setCartItems] = useState({});
     const [products, setProducts] = useState([]);
     const [token, setToken] = useState('');
@@ -49,7 +48,7 @@ const ShopContextProvider = (props) => {
 
         if (token) {
             try {
-                await axios.post(backendUrl + '/api/cart/add', { itemId, size }, { headers: { token } });
+                await axios.post(import.meta.env.VITE_BACKEND_URL + '/api/cart/add', { itemId, size }, { headers: { token } });
             } catch (error) {
                 console.log(error);
                 toast.error(error.message);
@@ -81,7 +80,7 @@ const ShopContextProvider = (props) => {
 
         if (token) {
             try {
-                await axios.post(backendUrl + '/api/cart/update', { itemId, size, quantity }, { headers: { token } });
+                await axios.post(import.meta.env.VITE_BACKEND_URL + '/api/cart/update', { itemId, size, quantity }, { headers: { token } });
 
             } catch (error) {
                 console.log(error);
@@ -110,7 +109,7 @@ const ShopContextProvider = (props) => {
 
     const getProductsData = async () => {
         try {
-            const response = await axios.get(backendUrl + `/api/product/list`);
+            const response = await axios.get(import.meta.env.VITE_BACKEND_URL + `/api/product/list`);
             if (response.data.success) {
                 setProducts(response.data.products)
             } else {
@@ -124,7 +123,7 @@ const ShopContextProvider = (props) => {
 
     const getUserCart = async (token) => {
         try {
-            const response = await axios.post(backendUrl + `/api/cart/get`, {}, { headers: { token } });
+            const response = await axios.post(import.meta.env.VITE_BACKEND_URL + `/api/cart/get`, {}, { headers: { token } });
             if (response.data.success) {
                 setCartItems(response.data.cartData)
             }
@@ -148,6 +147,8 @@ const ShopContextProvider = (props) => {
 
 
     const value = {
+        initialLoading,
+        setInitialLoading,
         products,
         currency,
         delivery_fee,
@@ -162,7 +163,6 @@ const ShopContextProvider = (props) => {
         updateQuantity,
         getCartAmount,
         navigate,
-        backendUrl,
         token,
         setToken
     }
