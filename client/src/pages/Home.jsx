@@ -1,18 +1,24 @@
-import BestSeller from "../components/BestSeller";
-import Hero from "../components/Hero";
-import LatestCollection from "../components/LatestCollection";
+import Banner from "../components/home/Banner";
+import BannerThree from "../components/home/BannerThree";
+import BannerTwo from "../components/home/BannerTwo";
+import BestSeller from "../components/home/BestSeller";
+import LatestCollection from "../components/home/LatestCollection";
+import ShoeBanner from "../components/home/shoeBanner/ShoeBanner";
 import NewsLetterBox from "../components/NewsLetterBox";
 import OurPolicy from "../components/OurPolicy";
 
 const Home = () => {
     return (
-        <div>
-            <Hero />
+        <>
+            <Banner />
             <LatestCollection />
+            <BannerTwo />
+            <ShoeBanner />
             <BestSeller />
+            <BannerThree />
             <OurPolicy />
             <NewsLetterBox />
-        </div>
+        </>
     );
 };
 

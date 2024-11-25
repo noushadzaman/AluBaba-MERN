@@ -10,8 +10,6 @@ const Verify = () => {
 
     const success = searchParams.get('success');
     const orderId = searchParams.get('orderId');
-    console.log(success, orderId);
-
 
     const verifyPayment = async () => {
         try {

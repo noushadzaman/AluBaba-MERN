@@ -10,9 +10,9 @@ const NewsLetterBox = () => {
             <p className="text-gray-400 mt-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam id ea eius accusamus.
             </p>
-            <form className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3">
+            <form className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3 rounded-3xl">
                 <input className="w-full sm:flex-1 outline-none" type="email" placeholder="Enter your mail" required />
-                <button className="bg-black text-white text-xs px-10 py-4" type="submit">Subscribe</button>
+                <button className="bg-black text-white text-xs px-10 py-4 rounded-3xl" type="submit">Subscribe</button>
             </form>
         </div>
     );
