@@ -14,8 +14,8 @@ import LoadingComponent from "../components/home/LoadigComponent";
 import { ShopContext } from "../context/ShopContext";
 
 const Home = () => {
-    const { setInitialLoading } = useContext(ShopContext);
-    const [isLoading, setIsLoading] = useState(true);
+    const { initialLoading, setInitialLoading } = useContext(ShopContext);
+    const [isLoading, setIsLoading] = useState(initialLoading);
     const imagesToPreload = [
         Fig,
         BG,
