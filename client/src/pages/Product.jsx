@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/frontend_assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import DescAndReview from '../components/product/DescAndReview';
 
 const Product = () => {
     const { productId } = useParams();
@@ -23,7 +24,7 @@ const Product = () => {
 
     useEffect(() => {
         fetchedProductData();
-    }, [])
+    }, [products])
 
     return productData
         ? <div className='border-t-2 pt-[141px] transition-opacity ease-in duration-500 opacity-100 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -84,16 +85,7 @@ const Product = () => {
                 </div>
             </div>
             {/* Description and review */}
-            <div className='mt-20'>
-                <div className='flex'>
-                    <p className='border px-5 py-3 text-sm'>Description</p>
-                    <p className='border px-5 py-3 text-sm'>Reviews (19)</p>
-                </div>
-                <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus odio totam dignissimos quam perspiciatis incidunt adipisci ab neque libero, quae ad laborum. Ab, et.</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia aperiam debitis reiciendis beatae dolore.</p>
-                </div>
-            </div>
+            <DescAndReview productData={productData} />
 
             {/* Display related products */}
             <RelatedProducts category={productData.category} subCategory={productData.subCategory} />

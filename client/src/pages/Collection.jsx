@@ -132,7 +132,7 @@ const Collection = () => {
                     </select>
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-6">
+                <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 gap-y-6 max-w-[1100px] mx-auto">
                     {
                         filterProducts.map((item, index) => <ProductItem
                             key={index}

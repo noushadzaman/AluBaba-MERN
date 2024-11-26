@@ -15,7 +15,7 @@ const SecondaryBanner = ({ img, num, title, subtitle }) => {
                         className={`flex justify-center flex-col`}
                     >
                         <p
-                            className="text-[#f08270] font-[600] text-[14px] mb-2"
+                            className="text-[#ce3936] font-[600] text-[14px] mb-2"
                         >{title}</p>
                         <Title text1={subtitle} />
                         <p

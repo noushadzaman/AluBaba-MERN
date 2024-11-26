@@ -1,4 +1,3 @@
-import { CgArrangeFront, CgArrowBottomRight, CgArrowLongLeftC } from 'react-icons/cg'
 import Shoe1 from '../../../assets/frontend_assets/banner-shoe-1.png'
 import Shoe2 from '../../../assets/frontend_assets/banner-shoe-2.png'
 import Shoe3 from '../../../assets/frontend_assets/banner-shoe-3.png'
@@ -15,7 +14,7 @@ const ShoeBannerController = ({ selectedDish, setSelectedDish, selectDish }) => 
     ];
 
     return (
-        <div className="flex gap-[20px] pb-[124px] md:pb-[102px] pt-[70px] md:pt-[10px] ">
+        <div className="flex gap-[20px]  lg:pb-[102px] pt-[70px] md:pt-[10px] ">
             {
                 fourDishes.map(d => <div
                     key={d.shoe}

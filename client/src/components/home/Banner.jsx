@@ -44,8 +44,8 @@ const Banner = () => {
                         }
                     }}
                 >
-                    <div className="bg-transparent backdrop-blur-lg bg-gradient-to-r from-white/20 to-black/20 absolute bottom-[50px] md:left-[50px] rounded-3xl flex flex-col text-white tracking-wider justify-center pl-[20px] p-[45px]">
-                        <h2 className=' text-2xl'>FutureFits</h2>
+                    <div className="bg-transparent backdrop-blur-lg bg-gradient-to-r from-white/20 to-black/20 absolute bottom-[50px] md:left-[50px] rounded-3xl flex flex-col text-white justify-center pl-[20px] p-[45px] tracking-widest space-y-2">
+                        <h2 className='text-3xl'>FutureFits</h2>
                         <p>Bold, innovative fashion that blends style and technology for the next generation.</p>
                         <div className='flex items-center justify-center gap-3'>
                             <Link to={'/collection'} className="w-full border-[1px] mt-2 border-white text-white text-xs px-10 py-4 rounded-3xl text-center" type="submit">Top wears</Link>

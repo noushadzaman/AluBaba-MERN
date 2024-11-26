@@ -1,19 +1,19 @@
 import clsx from 'clsx';
 import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { assets } from '../../assets/frontend_assets/assets';
-import NavLogoLight from '../../assets/frontend_assets/nav-logo-light.png';
-import NavLogoDark from '../../assets/frontend_assets/nav-logo-dark.png';
+import { assets } from '../assets/frontend_assets/assets';
+import NavLogoLight from '../assets/frontend_assets/nav-logo-light.png';
+import NavLogoDark from '../assets/frontend_assets/nav-logo-dark.png';
 import { FiSearch } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { CgProfile } from "react-icons/cg";
 import { FaOpencart } from "react-icons/fa";
-import { ShopContext } from '../../context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 
 const Header = () => {
     const { initialLoading, setShowSearch, getCartCount, navigate, token, setToken, setCartItems } = useContext(ShopContext);
-    const [visible, setVisible] = useState(false);
+    // const [visible, setVisible] = useState(false);
     const [scrolled, setScrolled] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const loc = useLocation();
@@ -58,17 +58,17 @@ const Header = () => {
                 >
                     <div className={`mx-auto px-16 max-xl:px-10 max-sm:px-4 flex h-14 items-center max-lg:px-5 
                 ${scrolled > 950 || loc.pathname !== '/' ? "" : "text-white"}`}>
-                        <a className="lg:hidden flex-1 cursor-pointer z-2">
-                            <img src="/public/images/xora.svg" width={115} height={55} alt="Logo" />
+                        <a className="md:hidden flex-1 cursor-pointer z-2">
+                            <img src={scrolled > 950 || loc.pathname !== '/' ? NavLogoDark : NavLogoLight} width={40} height={55} alt="Logo" />
                         </a>
 
-                        <div className={clsx('w-full max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-[#3eb5a9]', !isOpen && 'max-lg:pointer-events-none max-lg:opacity-0')}>
-                            <div className="max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:p-6 max-lg:overflow-hidden sidebar-before max-md:px-4">
-                                <nav className='max-lg:relative max-lg:z-2 max-lg:my-auto'>
-                                    <ul className="flex justify-between max-lg:block max-lg:px-12">
+                        <div className={clsx('w-full max-md:fixed max-md:top-0 max-md:left-0 max-md:w-full max-md:bg-[#3eb5a9]', !isOpen && 'max-md:pointer-events-none max-md:opacity-0')}>
+                            <div className="max-md:relative max-md:flex max-md:flex-col max-md:min-h-screen max-md:p-6 max-md:overflow-hidden sidebar-before max-md:px-4">
+                                <nav className='max-md:relative max-md:z-2 max-md:my-auto'>
+                                    <ul className="flex flex-col md:flex-row justify-center md:justify-between max-md:px-12">
 
-                                        <li className="relative flex items-center justify-between max-lg:flex-col max-lg:items-start">
-                                            <ul className="hidden sm:flex gap-5 text-lg test-gray-700 tracking-widest">
+                                        <li className="relative flex items-center justify-between max-md:flex-col max-md:items-start">
+                                            <ul className="flex max-md:gap-12 gap-5 text-lg test-gray-700 tracking-widest">
 
                                                 <NavLink to={'/collection'} className="flex flex-col items-center gap-1">
                                                     <p>Collection</p>
@@ -91,7 +91,7 @@ const Header = () => {
 
 
                                         <li className="relative flex items-center justify-between max-lg:flex-col max-lg:items-start">
-                                            <div className="flex items-center gap-6">
+                                            <div className="flex items-center gap-6 max-md:mt-12 max-md:mx-auto">
                                                 {/* <FiSearch className='cursor-pointer' /> */}
 
                                                 <div className="group relative">
@@ -124,9 +124,9 @@ const Header = () => {
                                                         {getCartCount()}
                                                     </p>
                                                 </Link>
-                                                <img
+                                                {/* <img
                                                     onClick={() => setVisible(true)}
-                                                    src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" alt="" />
+                                                    src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" alt="" /> */}
                                             </div>
                                         </li>
 
@@ -137,7 +137,7 @@ const Header = () => {
 
                         <button
                             onClick={() => setIsOpen(prev => !prev)}
-                            className='lg:hidden z-2 size-10 border-2 border-s4/25 rounded-full flex justify-center items-center'>
+                            className='md:hidden z-20 size-10 border-2 border-[#ce3936] border-s4/25 rounded-full flex justify-center items-center'>
                             <img
                                 className='size-1/2 object-contain'
                                 src={`/public/images/${isOpen ? 'close' : 'magic'}.svg`}
@@ -151,7 +151,7 @@ const Header = () => {
                             offset={-250}
                             spy
                             smooth
-                            className={clsx("max-lg:hidden transition-transform duration-500 cursor-pointer")}
+                            className={clsx("max-md:hidden transition-transform duration-500 cursor-pointer")}
                         >
                             <img src={scrolled > 950 || loc.pathname !== '/' ? NavLogoDark : NavLogoLight} width={50} height={55} />
                         </Link>

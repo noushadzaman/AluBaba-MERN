@@ -16,7 +16,8 @@ import Verify from "./pages/Verify";
 import { AnimatePresence } from "framer-motion";
 import AnimatePage from "./components/AnimatePage";
 import Footer from "./components/home/Footer";
-import Header from "./components/home/Header";
+import Header from "./components/Header";
+;
 
 const App = () => {
   const location = useLocation();
