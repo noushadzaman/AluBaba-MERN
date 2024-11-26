@@ -13,7 +13,7 @@ const ShoeBanner = () => {
         }, 3000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [selectedShoe]);
 
     function selectDish(dishNum) {
         setSelectedShoe(dishNum);

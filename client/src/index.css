@@ -19,11 +19,12 @@
 
 a.active hr {
     display: block;
+    background-color: #ce3936;
 }
 
 @media (max-width: 640px) {
     a.active {
-        background-color: black;
-        color: white;
+        background-color: #ce3936;
+        color: #ce3936;
     }
 }

@@ -74,15 +74,11 @@ const PlaceOrder = () => {
                     }
                     break;
                 }
-
                 case "razorpay":
-
                     break;
-
                 default:
                     break;
             }
-
         }
         catch (error) {
             console.log(error);
@@ -184,16 +180,16 @@ const PlaceOrder = () => {
                 <div className="mt-12">
                     <Title text1={"PAYMENT METHOD"} />
                     {/* ------------ payment method selection --------------- */}
-                    <div className="flex gap-3 flex-col lg:flex-row">
+                    <div className="mt-5 flex gap-3 items-center justify-center flex-col lg:flex-row">
                         <div
                             onClick={() => setMethod('stripe')}
-                            className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer">
+                            className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer rounded-full">
                             <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''}`}></p>
                             <img className="h-5 mx-4 " src={assets.stripe_logo} alt="" />
                         </div>
                         <div
                             onClick={() => setMethod('cod')}
-                            className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer">
+                            className="flex items-center xl:gap-3 border p-2 px-3 cursor-pointer rounded-full">
                             <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod' ? 'bg-green-400' : ''}`}></p>
                             <p className="text-gray-500 text-sm font-medium mx-4">CASH ON DELIVERY</p>
                         </div>
@@ -202,13 +198,11 @@ const PlaceOrder = () => {
                     <div className="w-full text-end mt-8">
                         <button
                             type="submit"
-                            className="bg-black text-white px-16 py-3 test-sm"
+                            className="bg-black text-white px-16 py-3 test-sm rounded-full"
                         >PLACE ORDER</button>
                     </div>
-
                 </div>
             </div>
-
         </form>
     );
 };
